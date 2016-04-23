@@ -1,14 +1,14 @@
-<title>WebRTC Based Video Streaming</title>
-<h1>WebRTC Based Video Streaming</h1>
+<!--<title>WebRTC Based Video Streaming</title>-->
+<!--<h1>WebRTC Based Video Streaming</h1>-->
 
 
-<input type="text" id="broadcast-id" placeholder="broadcast-id" value="Gossip!">
-<button id="open-or-join">Open or Join</button>
+<!--<input type="text" id="broadcast-id" placeholder="broadcast-id" value="Gossip!">-->
+<!--<button id="open-or-join">Open or Join</button>-->
 <hr>
 <div id="videos-container"></div>
 <style>
 video {
-    width: 30%;
+    width: 100%;
 }
 button, input, select {
     font-family: Myriad, Arial, Verdana;
@@ -32,7 +32,7 @@ button:active, input:active, select:active, button:focus, input:focus, select:fo
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(5%, rgb(221, 221, 221)), to(rgb(250, 250, 250)));
     border: 1px solid rgb(142, 142, 142);
 }
-button[disabled], iput[disabled], select[disabled] {
+button[disabled], input[disabled], select[disabled] {
     background: rgb(249, 249, 249);
     border: 1px solid rgb(218, 207, 207);
     color: rgb(197, 189, 189);
@@ -154,28 +154,28 @@ function openOrJoin(broadcastid) {
 };
 
 
-document.getElementById('open-or-join').onclick = function () {
-    var broadcastid = document.getElementById('broadcast-id').value;
-    if (broadcastid.replace(/^\s+|\s+$/g, '').length <= 0) {
-        alert('Please enter broadcast-id');
-        document.getElementById('broadcast-id').focus();
-        return;
-    }
-    this.disabled = true;
-
-    connection.session = {
-        video: true,
-        screen: false,
-        audio: true,
-        oneway: true
-    };
-
-    socket.emit('join-broadcast', {
-        broadcastid: broadcastid,
-        userid: connection.userid,
-        typeOfStreams: connection.session
-    });
-};
+//document.getElementById('open-or-join').onclick = function () {
+//    var broadcastid = document.getElementById('broadcast-id').value;
+//    if (broadcastid.replace(/^\s+|\s+$/g, '').length <= 0) {
+//        alert('Please enter broadcast-id');
+//        document.getElementById('broadcast-id').focus();
+//        return;
+//    }
+//    this.disabled = true;
+//
+//    connection.session = {
+//        video: true,
+//        screen: false,
+//        audio: true,
+//        oneway: true
+//    };
+//
+//    socket.emit('join-broadcast', {
+//        broadcastid: broadcastid,
+//        userid: connection.userid,
+//        typeOfStreams: connection.session
+//    });
+//};
 
 // this event is emitted when a broadcast is already created.
 socket.on('join-broadcaster', function(broadcaster, typeOfStreams) {
