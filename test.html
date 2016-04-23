@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 
-<iframe id="iframe" src="http://0.0.0.0:8888" style="height:400px;width:600px">
+<iframe id="iframe" src="http://ec2-54-88-212-149.compute-1.amazonaws.com:18888/" style="height:400px;width:600px">
     <script>
         window.addEventListener('message', function(event) {
             alert('Received message: ' + event.data.message);
@@ -31,13 +31,13 @@
     var btn2 = document.getElementById('reload-iframe-btn')
     btn2.onclick = function(){
         var frame = document.getElementById("iframe")
-        frame.contentWindow.postMessage({command: 'reload'}, '*');
+        frame.contentWindow.postMessage({command: 'stop'}, '*');
     }
 
     var btn3 = document.getElementById('start-join-btn')
     btn3.onclick = function(){
         var frame = document.getElementById("iframe")
-        frame.contentWindow.postMessage({command: 'start', title: "test title"}, '*');
+        frame.contentWindow.postMessage({command: 'start', groupid: "fakeid"}, '*');
     }
 
 </script>

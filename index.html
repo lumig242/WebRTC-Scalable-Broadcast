@@ -221,10 +221,10 @@ window.onbeforeunload = function() {
 
 
 window.addEventListener('message', function(event) {
-    if(event.data.command == "reload"){
+    if(event.data.command == "stop"){
         window.location.reload()
     }else if(event.data.command == "start"){
-        openOrJoin(event.data.title)
+        openOrJoin(event.data.groupid)
     }else {
             alert('Received message: ' + event.data.message)
     }
